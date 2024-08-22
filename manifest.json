@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Snippet Hive",
+  "version": "0.1.0",
+  "description": "Save and manage your AI generated code snippets",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "scripting",
+    "tabs",
+    "sidePanel"
+  ],
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "action": {
+    "default_icon": "images/icon-128.png",
+    "default_title": "Snippet Hive"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/logo.png",
+    "48": "images/logo.png",
+    "128": "images/logo.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Open Snippet Hive Sidebar"
+    }
+  },
+  "host_permissions": [
+    "https://claude.ai/*"
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk0NxCXccbtn920olh9wXgg5DbZWBZs7kiEJcSbXqoolzSFilvr1Yq5EHr0AlSGf19Smcin5yXMKnnm73t3D/rkmDYMhnDMUi/21Dbtrrk61W0OgjQKxktr3HiFk4MVKjcyGH53ggUi4/Isysk03fg8lb7dBnLiof4f2crV40VPJ4dSu72r8UazYuN+LeUfqF3gaBRb7IsiFJhGdwFcabNtvNehv6a3c3w55+oNGCSoOUfjeG+USamGFbM0pk00+rUxTbFNoKTZJRVXNYlZczhz2NGxwHcANCfFO692Cjv6YIjIiCndLtKAi950ua3urQlhMBCXAKo1Xi3Nwf/ZJsEQIDAQAB"
+}
